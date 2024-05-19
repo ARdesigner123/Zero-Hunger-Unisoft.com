@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Unisoft</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@700&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/8ef5802b7c.js" crossorigin="anonymous"></script>
+<style>
+body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
+
+* {
+margin: 0;
+padding: 0;
+box-string: border-box;
+font-family: 'Open Sans', sans-serif;
+}
+
+li {
+list-style: none;
+}
+
+a {
+text-decoration: none;
+color: #fff;
+font-size: 1rem;
+}
+
+p {
+text-decoration: none;
+color: #fff;
+font-size: 1rem;
+}
+
+a:hover {
+color: orange;
+}
+
+p:hover {
+color: orange;
+}
+
+header {
+position: relative;
+padding: 0 2rem;
+}
+
+.navbar {
+width: 100%;
+height: 60px;
+max-width: 1200px;
+margin: 0 auto;
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+
+.navbar .logo a {
+font-size: 1.5rem;
+font-weight: bold;
+}
+
+.navbar .links{
+display: flex;
+gap: 2rem;
+}
+
+.navbar .toggle_btn{
+color: #fff;
+font-size: 1.5rem;
+cursor: pointer;
+display: none;
+}
+
+:root {
+  --clr-neon: hsl(120, 100%, 50%);
+  --clr-bg: hsl(126, 21%, 16%);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.action_btn {
+color: var(--clr-neon);
+padding: 0.5rem 1.9rem;
+text-decoration: none;
+border: var(--clr-neon) 0.125em solid;
+outline: none;
+border-radius: 0.25em;
+font-size: 1rem;
+font-weight: bold;
+cursor: pointer;
+transition: scale 0.2 ease;
+text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em currentColor;
+
+  box-shadow: inset 0 0 0.5em 0 var(--clr-neon), 0 0 0.5em 0 var(--clr-neon);
+
+  position: relative;
+}
+
+.action_btn:hover,
+.action_btn:focus {
+scale: 1.05;
+color: #fff;color: var(--clr-bg);
+text-shadow: none;
+}
+
+.action_btn::before {
+pointer-events: none;
+content: "";
+position: absolute;
+background: var(--clr-neon);
+top: 120%;
+left: 0;
+width: 100%;
+height: 100%;
+transform: perspective(1em) rotateX(40deg) scale(1, 0.35);
+filter: blur(1em);
+opacity: 0.7;
+}
+
+.action_btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  box-shadow: 0 0 2em 0.5em var(--clr-neon);
+  opacity: 0;
+  background-color: var(--clr-neon);
+  z-index: -1;
+  transition: opacity 100ms linear;
+}
+
+.action_btn:hover::before,
+.neon-button:focus::before {
+  opacity: 1;
+}
+.action_btn:hover::after,
+.action_btn:focus::after {
+  opacity: 1;
+}
+
+.action_btn:active {
+scale: 0.95;
+}
+
+.dropdown_menu {
+display: none;
+position: absolute;
+right: 2rem;
+top: 60px;
+height: 0;
+width: 300px;
+background: rgba(255, 255, 255, 0.1);
+backdrop-filter: blur(15px);
+border-radius: 10px;
+overflow: hidden;
+transition: height 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.dropdown_menu.open{
+height: 340px;
+}
+
+.dropdown_menu li{
+padding: 0.7rem;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.dropdown_menu .action_btn {
+width: 100%;
+display: flex;
+justify-content: center;
+}
+
+@media(max-width: 992px){
+.navbar .links,
+.navbar .action_btn {
+display: none;
+}
+
+.navbar .toggle_btn {
+display: block;
+}
+
+.dropdown_menu {
+display: block;
+}
+}
+
+@media(max-height: 450px){
+.navbar .links,
+.navbar .action_btn {
+display: none;
+}
+
+.navbar .toggle_btn {
+display: block;
+}
+
+.dropdown_menu {
+display: block;
+}
+}
+
+@media(max-width: 576px){
+.dropdown_menu {
+left: 2rem;
+width: unset;
+}
+}
+</style>
+</style>
+<style type="text/css">
+.model-spline{
+position: absolute;
+right: 0;
+bottom: 0;
+z-index: -1;
+}
+</style>
+<script type="module" src="https://unpkg.com/@splinetool/viewer@1.2.4/build/spline-viewer.js"></script>
+<spline-viewer class="model-spline" url="https://prod.spline.design/KfZJRYrkoMyqTgcU/scene.splinecode"></spline-viewer>
+
+<style type="text/css">
+@media (min-aspect-ratio: 16/9){
+    .model-spline{
+    width: 100%;
+    height: auto;
+  }
+}
+</style>
+
+<style type="text/css">
+@media (max-aspect-ratio: 16/9){
+    .model-spline{
+    width: auto;
+    height: 100%;
+  }
+}
+</style>
+
+</head>
+<body class="w3-black">
+
+<div class="navbar">
+<div class="logo"><a href"a">Unisoft</a></div>
+<ul class="links">
+<li><a href="#home" class="w3-bar-item w3-button w3-padding-large w3-hover-blue">
+    <i class="fa fa-home w3-xxlarge"></i>
+    <p>HOME</p>
+  </a></li>
+<li><a href="#about" class="w3-bar-item w3-button w3-padding-large w3-hover-blue">
+    <i class="fa fa-user w3-xxlarge"></i>
+    <p>INTRODUCTION</p>
+  </a></li>
+<li><a href="#photos" class="w3-bar-item w3-button w3-padding-large w3-hover-blue">
+    <i class="fa fa-eye w3-xxlarge"></i>
+    <p>GAME</p>
+  </a></li>
+<li><a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hover-blue">
+    <i class="fa fa-envelope w3-xxlarge"></i>
+    <p>CONTACT US</p>
+  </a></li>
+</ul>
+<a href="a" class="action_btn">Get Started</a>
+<div class="toggle_btn">
+<i class="fa-solid fa-bars"></i>
+</div>
+</div>
+
+<div class="dropdown_menu">
+<li><a href="#home" class="w3-bar-item w3-button w3-padding-large w3--hover-blue">
+    <p>HOME</p>
+  </a></li>
+<li><a href="#about" class="w3-bar-item w3-button w3-padding-large w3-hover-blue">
+    <p>INTRODUCTION</p>
+  </a></li>
+<li><a href="#photos" class="w3-bar-item w3-button w3-padding-large w3-hover-blue">
+    <p>GAME</p>
+  </a></li>
+<li><a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hover-blue">
+    <p>CONTACT US</p>
+  </a></li>
+<li><a href="a" class="action_btn">Get Started</a></li>
+</div>
+</header>
+
+<script>
+const toggleBtn = document.querySelector('.toggle_btn')
+const toggleBtnIcon = document.querySelector('.toggle_btn i')
+const dropDownMenu = document.querySelector('.dropdown_menu')
+
+toggleBtn.onclick = function () {
+dropDownMenu.classList.toggle('open')
+const isOpen = dropDownMenu. classList.contains('open')
+
+toggleBtnIcon.classList = isOpen
+? 'fa-solid fa-xmark'
+: 'fa-solid fa-bars'
+}
+</script>
+
+<!-- Page Content -->
+<div class="w3-padding-large" id="main">
+  <!-- Header/Home -->
+  <header class="w3-container w3-padding-32 w3-center" id="home">
+<img src="Unisoft_Logo.PNG" alt="logo" class="w3-image" width="200" height="250">
+    <div class="content">
+    <h1 glitch="Unisoft">Unisoft</h1><br>
+    <p>games social networking platforms.</p>
+    </div>
+  </header>
+<style type="text/css">
+.content{
+text-align: center;
+}
+.content h1{
+font-size: 110px;
+font-weight: 600;
+background-image: linear-gradient(43deg, #d9ff78 0%, #52fe6f 46%, #45802d 100%);
+-webkit-background-clip: text;
+color: transparent;
+}
+[glitch] {
+  display: inline-block;
+  position: relative;
+}
+[glitch]:after {
+  --slice-0: inset(50% 0 50% 0%);
+  --slice-1: inset(0 0 50% 0);
+  --slice-2: inset(0 0 0 0);
+  --slice-3: inset(50% 0 0 0);
+  content: attr(glitch);
+  /*     change to whatever color, default green */
+  background-image: linear-gradient(43deg, #d9ff78 0%, #52fe6f 46%, #45802d 100%);
+-webkit-background-clip: text;
+color: transparent;
+  visibility: visible;
+  position: absolute;
+  display: block;
+  /*     how big the text needs to scale compared to its original size */
+  transform: scale(1.25);
+  -webkit-clip-path: var(--slice-0);
+  clip-path: var(--slice-0);
+  top: 0;
+  animation: glitchback 0.1s reverse;
+  animation-timing-function: step-end;
+}
+[glitch]:hover {
+  visibility: hidden;
+  transition: visibility 0.1s;
+}
+[glitch]:hover:after {
+  --slice-2: inset(0% 0% 0 0);
+  -webkit-clip-path: var(--slice-2);
+  clip-path: var(--slice-2);
+  animation: glitch 0.1s;
+  animation-timing-function: step-end;
+}
+@keyframes glitch {
+  0% {
+    -webkit-clip-path: var(--slice-0);
+    clip-path: var(--slice-0);
+  }
+  10% {
+    -webkit-clip-path: var(--slice-1);
+    clip-path: var(--slice-1);
+  }
+  to {
+    -webkit-clip-path: var(--slice-2);
+    clip-path: var(--slice-2);
+  }
+}
+@keyframes glitchback {
+  0% {
+    -webkit-clip-path: var(--slice-0);
+    clip-path: var(--slice-0);
+  }
+  10% {
+    -webkit-clip-path: var(--slice-3);
+    clip-path: var(--slice-3);
+  }
+  to {
+    -webkit-clip-path: var(--slice-2);
+    clip-path: var(--slice-2);
+  }
+}
+.content h1{
+  font-family: PexicoMicro-Regular, sans-serif;
+}
+
+/* font goes hard */
+@font-face {
+  font-family: "PexicoMicro-Regular";
+  src: url("https://db.onlinewebfonts.com/t/852be80a3188170a0c4ebb2534efb54d.eot");
+  src: url("https://db.onlinewebfonts.com/t/852be80a3188170a0c4ebb2534efb54d.eot?#iefix")
+      format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/852be80a3188170a0c4ebb2534efb54d.woff2")
+      format("woff2"),
+    url("https://db.onlinewebfonts.com/t/852be80a3188170a0c4ebb2534efb54d.woff")
+      format("woff"),
+    url("https://db.onlinewebfonts.com/t/852be80a3188170a0c4ebb2534efb54d.ttf")
+      format("truetype"),
+    url("https://db.onlinewebfonts.com/t/852be80a3188170a0c4ebb2534efb54d.svg#PexicoMicro-Regular")
+      format("svg");
+}
+
+.content p{
+font-family: PexicoMicro-Regular, sans-serif;
+text-decoration:none;
+display: inline-block;
+color: #fff;
+font-size: 24px;
+border: 2px solid #fff;
+padding: 14px 70px;
+border-radius: 50px;
+margin-top: 20px;
+}
+
+</style>
+
+<style type="text/css">
+.timeline{
+position: relative;
+max-width: 1200px;
+margin: 100px auto;
+}
+.container{
+padding: 10px 50px;
+position: relative;
+width: 50%;
+animation: movedown 1s linear forwards;
+opacity: 0;
+}
+@keyframes movedown {
+0%{
+opacity: 1;
+transform: translateY(-30px);
+}
+100%{
+opacity: 1;
+transform: translateY(0px);
+}
+}
+
+.container:nth-child(1){
+animation-delay: 0s;
+}
+.container:nth-child(2){
+animation-delay: 1s;
+}
+.container:nth-child(3){
+animation-delay: 2s;
+}
+.container:nth-child(4){
+animation-delay: 3s;
+}
+.text-box{
+padding: 20px 30px;
+background: #3a0f64;
+position: relative;
+border-radius: 6px;
+font-size: 15px;
+}
+.left-container{
+left: 4%;
+}
+.right-container{
+left: 55%;
+}
+.container img{
+position: absolute;
+width: 40px;
+border-radius: 50%;
+right: -20px;
+top: 32px;
+z-index: 10;
+}
+.right-container img{
+left: -20px;
+}
+
+.timeline:after{
+content: '';
+position: absolute;
+width: 6px;
+height: 100%;
+background: #04c2ff;
+top: 0;
+left: 50%;
+margin-left: 40px;
+z-index: -1;
+animation: moveline 6s linear forwards;
+}
+@keyframes moveline {
+0%{
+height: 0;
+}
+100%{
+height: 100%;
+}
+}
+
+.text-box h2{
+font-weight: 600;
+} 
+.text-box small{
+display: inline-block;
+margin-bottom: 15px;
+}
+
+.left-container-arrow{
+height: 0;
+width: 0;
+position: absolute;
+top: 28px;
+z-index: 1;
+border-top: 15px solid transparent;
+border-bottom: 15px solid transparent;
+border-left: 15px solid #fff;
+right: -15px;
+}
+
+.right-container-arrow{
+height: 0;
+width: 0;
+position: absolute;
+top: 28px;
+z-index: 1;
+border-top: 15px solid transparent;
+border-bottom: 15px solid transparent;
+border-right: 15px solid #fff;
+left: -15px;
+}
+
+@media screen and (max-width: 600px){
+.timeline{
+margin: 50px auto;
+}
+.timeline:after{
+left: 31px;
+}
+.container{
+width: 100%;
+padding-left: 80px;
+padding-right: 25px;
+}
+.text-box{
+font-size: 13px;
+}
+.text-box small{
+margin-bottom: 10px;
+}
+.right-container{
+left: 0;
+}
+
+.left-container img, .right-container img{
+left: 10px;
+}
+
+.left-container-arrow, .right-container-arrow{
+border-right: 15px solid #fff;
+border-left: 0;
+left: -15px;
+}
+}
+
+.outline:after{
+content: "";
+position: absolute;
+left: 0;
+bottom: 0;
+border: 3px solid blue;
+width: 100%;
+}
+</style>
+
+
+  <!-- About Section -->
+<br><br><br><br><br><br>
+  <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="about">
+    <h2 class="w3-text-light-blue"><span style="font-family: 'Origin Tech Demo', sans-serif;">Introduction</span></h2>
+    <hr style="width:200px" class="w3-opacity">
+    <div class="timeline">
+
+<div class="container left-container">
+<img src="info.png">
+<div class="text-box">
+<h2 class="w3-text-blue"><span style="font-family: 'Origin Tech Demo', sans-serif;">What Is Unisoft?</span></h2>
+<p><span style="color:blue;"> “UNISOFT”</span> is an established advanced games developer company for <span style="color:green;">social networking platforms.</span></p>
+<span class="left-container-arrow"></span>
+</div>
+</div>
+
+<div class="container right-container">
+<img src="timeicon.png">
+<div class="text-box">
+<h2 class="w3-text-blue"><span style="font-family: 'Origin Tech Demo', sans-serif;">History</span></h2>
+<small><h4>2010</h4></small>
+<p><span style="color:blue;"> Since 2010,</span> the company has expanded rapidly by striving to deliver the <span style="color:green;">best social gaming experience for players.</span></p>
+<span class="right-container-arrow"></span>
+</div>
+</div>
+
+<div class="container left-container">
+<img src="portfolio.png">
+<div class="text-box">
+<h2 class="w3-text-blue"><span style="font-family: 'Origin Tech Demo', sans-serif;">Company's Portfolio</h2>
+<p> We created games such as <span style="color:yellow;">CSR, Merge Gems, Merge Dragons and Farmville.</span></p>
+<span class="left-container-arrow"></span>
+</div>
+</div>
+
+<div class="container right-container">
+<img src="purpose.png">
+<div class="text-box">
+<h2 class="w3-text-blue"><span style="font-family: 'Origin Tech Demo', sans-serif;">Company's Vision</h2>
+<small>2021 - 2022</small>
+<p> <span style="color:blue;">“UNISOFT”</span> has since evolved to become a <span style="color:yellow;">unique</span> blend of <span style="color:yellow;">creativity and technical expertise,</span> a place where <span style="color:blue;">"design meets technology".</span></p>
+<span class="right-container-arrow"></span>
+</div>
+</div>
+
+</div>
+  
+    <!-- Testimonials -->
+    <h2 class="w3-text-light-blue"><span style="font-family: 'Origin Tech Demo', sans-serif;">Meet our Team</span></h2> 
+    <hr style="width:230px" class="w3-opacity"> 
+    <img src="Dylan.png" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:200px">
+    <p><h3 class="w3-text-light-blue"><span class="w3-large w3-margin-right"><span style="font-family: 'Loomattic', sans-serif;">A. Dylan Jadeja.</span></span> Chef Executive Officer.</h3></p>
+    <p>Setting the vision, strategy, and direction for Unisoft.</p><br><br><br>
+    
+    <img src="Marc Merrill.jpg" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:200px">
+    <p><h3 class="w3-text-light-blue"><span class="w3-large w3-margin-right"><span style="font-family: 'Loomattic', sans-serif;">Marc Merrill.</span></span> Co-Founder And Chief Product Officer.</h3></p>
+    <p>Overseeing product and experiences, ensuring what we do reflects the promises we make to players.</p><br><br><br>
+
+    <img src="Emilly Winkle.jpg" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:200px">
+    <p><h3 class="w3-text-light-blue"><span class="w3-large w3-margin-right"><span style="font-family: 'Loomattic', sans-serif;">Emily Winkle.</span></span> CEO at Company.</h3></p>
+    <p>Ensuring Members have everything they need to thrive together.</p><br><br><br>
+
+    <img src="Shauna Spenley.jpg" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:200px">
+    <p><h3 class="w3-text-light-blue"><span class="w3-large w3-margin-right"><span style="font-family: 'Loomattic', sans-serif;">Shauna Spenley.</span></span> CEO at Company.</h3></p>
+    <p>Driving force behind Film, Television, Music, Unisoft Forge, and Consumer Products.</p>
+
+  <!-- End About Section -->
+  </div>
+  
+  <!-- Portfolio Section -->
+  <div class="w3-padding-64 w3-content" id="photos">
+    <h2 class="w3-text-light-blue"><span style="font-family: 'Origin Tech Demo', sans-serif;">Games</span></h2>
+    <hr style="width:200px" class="w3-opacity">
+
+<style type="text/css">
+* {
+box-sizing: border-box;
+padding: 0;
+margin: 0;
+}
+
+.container1 {
+display: flex;
+justify-content: center;
+flex-wrap: wrap;
+}
+
+.card {
+background: white;
+width: 270px;
+margin: 10px;
+border-radius: 15px;
+}
+
+.card-image{
+background-color: aqua;
+height: 240px;
+margin-bottom: 15px;
+background-size: cover;
+border-radius: 15px 15px 0 0;
+}
+
+.csr {
+background-image: url('https://upload.wikimedia.org/wikipedia/en/d/d9/CSR_Racing_app_icon.png');
+}
+
+.mergegems {
+background-image: url('https://external-preview.redd.it/XdQe_ue4HajY0rjp9Xhztqiq8a5XO8Mbx92158VzVMc.png?width=640&crop=smart&format=pjpg&auto=webp&s=8869230e2a9171b8bef22312184df09881626ee7');
+}
+
+.mergedragon {
+background-image: url('https://static.wikia.nocookie.net/mergedragons/images/9/90/Dragons.jpg/revision/latest?cb=20170805114812');
+}
+
+.farmville {
+background-image: url('https://www.theeducationmagazine.com/wp-content/uploads/2020/09/Farm-Ville-TEM-News..jpg');
+}
+
+.card h2 {
+padding: 10px;
+}
+
+.card p{
+padding: 10px;
+}
+
+
+.card a {
+background-color: black;
+color: white;
+padding: 15px 20px;
+display: block;
+text-align: center;
+margin: 20px 50px;
+text-decoration:none;
+}
+
+.card:hover {
+background-color: rgb(62,62,62);
+color: white;
+cursor: pointer;
+transform: scale(1.03);
+transition: all 1s ease;
+}
+
+</style>
+
+    <!-- Grid for photos -->
+    <div class="w3-row-padding" style="margin:0 -16px">
+      <div class="w3-half">
+        <section class="container1">
+        <div class="card">
+        <div class="card-image csr"></div>
+        <h2 class="w3-text-green"><span style="font-family: 'Origin Tech Demo', sans-serif;">CSR</span></h2>
+        <p><h4 class="w3-text-black"><span style="font-family: 'Connection', sans-serif;"><span style="color:blue;"><span style="font-family: 'Connection', sans-serif;">Win</span></span> Races against <span style="color:green;"><span style="font-family: 'Connection', sans-serif;">City 'CREWS'</span></span> to collect <span style="color:yellow;"><span style="font-family: 'Connection', sans-serif;">Money and Bonuses!</span></span></span></h4></p>
+        <a href="https://childrenandmedia.org.au/app-reviews/apps/csr-racing">READ MORE</a>
+        </div>
+        <div class="card">
+        <div class="card-image mergegems"></div>
+        <h2 class="w3-text-green"><span style="font-family: 'Origin Tech Demo', sans-serif;">Merge Gems</span></h2>
+        <p><h4 class="w3-text-black"><span style="font-family: 'Connection', sans-serif;">You have the <span style="color:red;"><span style="font-family: 'Connection', sans-serif;">POWER</span></span> to Merge Rocks into <span style="color:purple;"><span style="font-family: 'Connection', sans-serif;">Beautiful GEMS!</span></span> Merge and Match <span style="color:yellow;"><span style="font-family: 'Connection', sans-serif;">Rocks, Gold and more</span></span> and Enjoy the <span style="color:yellow;"><span style="font-family: 'Connection', sans-serif;">Sparkle and Shine</span></span> of <span style="color:green;"><span style="font-family: 'Connection', sans-serif;">GEMS!</span></span></span></h4></p>
+        <a href="https://play.google.com/store/apps/details?id=com.gramgames.london.mergegems&hl=en&gl=US">READ MORE</a>
+        </div>
+        </section>
+      </div>
+
+      <div class="w3-half">
+        <section class="container1">
+        <div class="card">
+        <div class="card-image mergedragon"></div>
+        <h2 class="w3-text-green"><span style="font-family: 'Origin Tech Demo', sans-serif;">Merge Dragon</span></h2>
+        <p><h4 class="w3-text-black"><span style="font-family: 'Connection', sans-serif;"><span style="color:blue;"><span style="font-family: 'Connection', sans-serif;">Revive</span></span> the land by Merging <span style="color:green;"><span style="font-family: 'Connection', sans-serif;">Plants, Statues, Coins and more</span></span> to get more <span style="color:yellow;"><span style="font-family: 'Connection', sans-serif;">Objects!</span></span></span></h4></p>
+        <a href="https://mattkber.medium.com/merge-dragons-a-critical-play-cb0add46f176">READ MORE</a>
+        </div>
+        <div class="card">
+        <div class="card-image farmville"></div>
+        <h2 class="w3-text-green"><span style="font-family: 'Origin Tech Demo', sans-serif;">Farmville</span></h2>
+        <p><h4 class="w3-text-black"><span style="font-family: 'Connection', sans-serif;">Earn <span style="color:yellow;"><span style="font-family: 'Connection', sans-serif;">Coins</span></span> to <span style="color:green;"><span style="font-family: 'Connection', sans-serif;">Plant and Harvest Crops, Trees and Animals</span></span> and purchase <span style="color:blue;"><span style="font-family: 'Connection', sans-serif;">Decorations to Customize</span></span> your <span style="color:yellow;"><span style="font-family: 'Connection', sans-serif;">Productive Farm!</span></span></span></h4></p>
+        <a href="https://www.edutopia.org/blog/farmville-standards-linda-deneher">READ MORE</a>
+        </div>
+        
+        </section>
+      </div>
+    <!-- End photo grid -->
+    </div>
+  <!-- End Portfolio Section -->
+  </div>
+
+<style type="text/css">
+*{
+margin: 0;
+padding: 0;
+font-family: 'poppins', sans-serif;
+box-sizing: border-box;
+}
+.hero{
+width: 100%;
+height: 100vh;
+background-image: linear-gradient(rgba(0, 0, 0, 0.7), #3551b5), url(background.jpg);
+background-position: center;
+background-size: cover;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+form{
+width: 90%;
+max-width: 600px;
+}
+.input-group{
+margin-bottom: 30px;
+position: relative;
+}
+input, textarea{
+width: 100%;
+padding: 10px;
+outline: 0;
+border: 1px solid #fff;
+color: #fff;
+background: transparent;
+font-size: 15px;
+}
+label{
+height: 100%;
+position: absolute;
+left: 0;
+top: 0;
+padding: 10px;
+color: #fff;
+cursor: text;
+transition: 0.2s;
+}
+button{
+padding: 10px 0;
+color: #fff;
+outline: none;
+background: transparent;
+border: 1px solid #fff;
+width: 100%;
+cursor: pointer;
+}
+input:focus~label,
+input:valid~label,
+textarea:focus~label,
+textarea:valid~label{
+top: -35px;
+font-size: 14px;
+}
+.row{
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+.row .input-group{
+flex-basis: 48%;
+}
+</style>
+
+  <!-- Contact Section -->
+  <div class="w3-padding-64 w3-content w3-text-grey" id="contact">
+    <h2 class="w3-text-light-blue"><span style="font-family: 'Origin Tech Demo', sans-serif;">Contact Us</span></h2>
+    <hr style="width:200px" class="w3-opacity">
+
+    <div class="w3-section">
+      <p><i class="fa fa-map-marker fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> Singapore</p>
+      <p><i class="fa fa-phone fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> Phone: +65 98331582</p>
+      <p><i class="fa fa-envelope fa-fw w3-text-white w3-xxlarge w3-margin-right"> </i><a href="Email:aaronnghm9999@gmail.com">aaronnghm9999@gmail.com</a></p>
+    </div><br>
+    <h2 class="w3-text-light-blue"><span style="font-family: 'Origin Tech Demo', sans-serif;">Feedback Form:</span></h2>
+    <div class="hero">
+
+<form>
+<div class="row">
+<div class="input-group">
+<input type="text" id="name" required>
+<label for="name"><i class="fa-solid fa-user"></i>Your Name</label>
+</div>
+<div class="input-group">
+<input type="text" id="number" required>
+<label for="number"><i class="fa-solid fa-phone-square-alt"></i>Phone Id</label>
+</div>
+</div>
+
+<div class="input-group">
+<input type="text" id="email" required>
+<label for="email"><i class="fa-solid fa-envelope"></i>Email Id</label>
+</div>
+
+<div class="input-group">
+<textarea id="message" rows="8" required></textarea>
+<label for="message"><i class="fa-solid fa-comments"></i>Your Message</label>
+</div>
+<button type="submit">SEND MESSGAE<i class="fa-solid fa-paper-plane"></i></button>
+
+</form>
+</div>
+  <!-- End Contact Section -->
+  </div>
+  
+    <!-- Footer -->
+  <footer class="w3-content w3-padding-64 w3-text-grey w3-xlarge">
+    <i class="fa fa-facebook-official w3-hover-opacity"></i>
+    <i class="fa fa-instagram w3-hover-opacity"></i>
+    <i class="fa fa-snapchat w3-hover-opacity"></i>
+    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+    <i class="fa fa-twitter w3-hover-opacity"></i>
+    <i class="fa fa-linkedin w3-hover-opacity"></i>
+   
+  <!-- End footer -->
+  </footer>
+
+<!-- END PAGE CONTENT -->
+</div>
+
+</body>
+</html>
